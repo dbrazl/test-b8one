@@ -6,10 +6,12 @@ interface IContainer {
   index: number;
 }
 
-function shouldAddMarginLeft(props: IContainer): boolean {
-  const divideByThree: boolean = props.index % 3 === 0;
+function isDivideByThree(props: IContainer): boolean {
+  return props.index % 3 === 0;
+}
 
-  return !divideByThree;
+function isDivideByTwo(props: IContainer): boolean {
+  return props.index % 2 === 0;
 }
 
 export const Container = styled.li<IContainer>`
@@ -18,8 +20,18 @@ export const Container = styled.li<IContainer>`
   border-radius: 8px;
   padding: 32px;
   width: calc(304px - 64px);
+  margin: 0 44px;
   margin-bottom: 44px;
-  margin-right: ${(props) => (shouldAddMarginLeft(props) ? 44 : 0)}px;
+
+  @media (min-width: 740px) {
+    margin: 0;
+    margin-bottom: 44px;
+    margin-right: ${(props) => (!isDivideByTwo(props) ? 44 : 0)}px;
+  }
+
+  @media (min-width: 1088px) {
+    margin-right: ${(props) => (!isDivideByThree(props) ? 44 : 0)}px;
+  }
 `;
 
 export const WhishListContainer = styled.div`

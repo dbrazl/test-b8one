@@ -13,7 +13,17 @@ export const Title = styled.h1`
 `;
 
 export const List = styled.ul`
-  width: 1000px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+
+  @media (min-width: 1000px) {
+    width: 80%;
+  }
+
+  @media (min-width: 1088px) {
+    width: 1000px;
+    justify-content: unset;
+  }
 `;
