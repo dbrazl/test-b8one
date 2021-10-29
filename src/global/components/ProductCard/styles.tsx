@@ -79,16 +79,12 @@ export const Price = styled.p`
   color: ${Colors.Red};
 `;
 
-export const InstallmentsContainer = styled.p`
+export const InstallmentsContainer = styled.div`
   display: flex;
 `;
 
-interface ILabel {
-  black?: boolean;
-}
-
-export const Label = styled.p<ILabel>`
-  color: ${(props) => (props.black ? Colors.Black : Colors.Grey2)};
+export const Label = styled.p`
+  color: ${Colors.Grey2};
 `;
 
 export const Bold = styled.b`
