@@ -32,11 +32,11 @@ export const Heart = styled(FaHeart)`
 `;
 
 interface IHeartOutline {
-  hover: boolean;
+  $hover: boolean;
 }
 
 export const HeartOutline = styled(FiHeart).attrs((props: IHeartOutline) => ({
-  color: props.hover ? Colors.Red : Colors.DarkGrey,
+  color: props.$hover ? Colors.Red : Colors.DarkGrey,
 }))<IHeartOutline>`
   width: 24px;
   height: 24px;

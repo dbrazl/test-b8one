@@ -29,7 +29,7 @@ const WhishList: React.FC<IWhishList> = ({ selected, onClick = () => {} }) => {
       onClick={onClick}
     >
       {selected && <Heart />}
-      {!selected && <HeartOutline hover={hover} />}
+      {!selected && <HeartOutline $hover={hover} />}
     </Container>
   );
 };
