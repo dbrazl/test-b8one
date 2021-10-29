@@ -10,17 +10,22 @@ interface IWhishList {
 const WhishList: React.FC<IWhishList> = ({ selected, onClick = () => {} }) => {
   const [hover, setHover] = useState(false);
 
-  function toggleHover(): void {
-    setHover(!hover);
+  function hoverOn(): void {
+    setHover(true);
   }
 
-  const toggleHoverCallback = useCallback(toggleHover, [hover]);
+  function hoverOff(): void {
+    setHover(false);
+  }
+
+  const hoverOnCallback = useCallback(hoverOn, []);
+  const hoverOffCallback = useCallback(hoverOff, []);
 
   return (
     <Container
       selected={selected}
-      onMouseEnter={toggleHoverCallback}
-      onMouseLeave={toggleHoverCallback}
+      onMouseEnter={hoverOnCallback}
+      onMouseLeave={hoverOffCallback}
       onClick={onClick}
     >
       {selected && <Heart />}
